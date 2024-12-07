@@ -1,0 +1,13 @@
+
+*.sketch
+
+*.xd
+*.fig
+
+.DS_Store
+node_modules/
+data.json
+
+README-template.md
+README.md
+style-guide.md
