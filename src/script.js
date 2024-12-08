@@ -1,6 +1,7 @@
 import { countryNames } from "./countryNames.js";
 
 const container = document.querySelector(".container");
+const fetchedCountries = [];
 
 countryNames.forEach((country) => {
   const ecncodeCountry = encodeURIComponent(country);
@@ -15,16 +16,16 @@ countryNames.forEach((country) => {
         throw new Error(`Response status not ok ${response.status}`);
       }
       const countries = await response.json();
-      console.log(Object.values(countries[0].name)[0]);
-      console.log(countries[0].population);
-      console.log(countries[0].region);
-      console.log(countries[0].subregion);
-      console.log(countries[0].capital[0]);
-      console.log(countries[0].tld[0]);
-      console.log(Object.values(countries[0].currencies)[0].name);
-      console.log(Object.values(countries[0].languages)[0]);
-      console.log(countries[0].borders);
-      console.log(Object.values(countries[0].flags));
+      // console.log(Object.values(countries[0].name)[0]);
+      // console.log(countries[0].population);
+      // console.log(countries[0].region);
+      // console.log(countries[0].subregion);
+      // console.log(countries[0].capital[0]);
+      // console.log(countries[0].tld[0]);
+      // console.log(Object.values(countries[0].currencies)[0].name);
+      // console.log(Object.values(countries[0].languages)[0]);
+      // console.log(countries[0].borders);
+      // console.log(Object.values(countries[0].flags));
 
       const cName = Object.values(countries[0].name)[0];
       const cPopln = countries[0].population.toLocaleString();
@@ -40,7 +41,7 @@ countryNames.forEach((country) => {
       const card = document.createElement("div");
       card.setAttribute(
         "class",
-        "bg-elementBg h-72 flex-col shadow-md rounded overflow-hidden cursor-pointer transition-transform ease-in-out duration-700 hover:scale-105"
+        "card bg-elementBg h-72 flex-col shadow-md rounded overflow-hidden cursor-pointer transition-transform ease-in-out duration-700 hover:scale-105"
       );
       card.innerHTML = ` <img src="${
         Object.values(countries[0].flags)[0]
@@ -52,6 +53,7 @@ countryNames.forEach((country) => {
             <p class="text-sm"><span class="font-medium">Capital:</span> ${cCapital}</p>
         </div>`;
       container.appendChild(card);
+      fetchedCountries.push({ card, region: cRegion });
     } catch (error) {
       console.log(`There's error, ${error}`);
     }
@@ -61,11 +63,12 @@ countryNames.forEach((country) => {
 
 // filter options
 const options = document.querySelector(".dropdown-options");
+const currentOption = document.querySelector(".current-option");
 const dropdown = document.querySelector(".dropdown-selected");
 const caretIcon = document.querySelector(".caret");
 
 dropdown.addEventListener("click", function () {
-  options.style.display = options.style.display === "block" ? "none" : "block";
+  options.classList.toggle("hidden");
   if (caretIcon.classList.contains("fa-caret-down")) {
     caretIcon.classList.remove("fa-caret-down");
     caretIcon.classList.add("fa-caret-up");
@@ -77,11 +80,22 @@ dropdown.addEventListener("click", function () {
 
 document.querySelectorAll(".option").forEach(function (option) {
   option.addEventListener("click", function () {
-    dropdown.textContent = this.textContent;
+    currentOption.textContent = this.textContent;
+    filterCountries(this.textContent);
     options.classList.add("hidden");
+    caretIcon.classList.remove("fa-caret-up");
+    caretIcon.classList.add("fa-caret-down");
   });
 });
-// hide options
-window.addEventListener("click", () => {
-  console.log("tttttttesssssssett");
-});
+
+function filterCountries(selectedRegion) {
+  fetchedCountries.forEach(({ card, region: cardRegion }) => {
+    if (cardRegion !== selectedRegion) {
+      card.classList.add("hidden");
+    } else {
+      card.classList.remove("hidden");
+    }
+  });
+}
+
+// search functionality
