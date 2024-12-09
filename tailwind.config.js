@@ -1,19 +1,33 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./*.html", "./src/*.js"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        elementBg: "hsl(209, 23%, 22%)",
-        bodyBg: "hsl(207, 26%, 17%)",
-        textColor: "hsl(0, 0%, 100%)",
-        hoverBg: "hsl(209, 23%, 18%)",
+        elementBgDark: "hsl(209, 23%, 22%)",
+        elementBgLight: "hsl(0, 0%, 100%)",
+        bodyBgDark: "hsl(207, 26%, 17%)",
+        bodyBgLight: "hsl(0, 0%, 98%)",
+        textColorDark: "hsl(0, 0%, 100%)",
+        textColorLight: "hsl(200, 15%, 8%)",
+        hoverBgDark: "hsl(209, 23%, 18%)",
+        hoverBgLight: "hsl(0, 0%, 90%)",
       },
       fontFamily: {
         serif: ["Nunito Sans", "sans-serif"],
       },
       fontSize: {
         mxl: "18px",
+      },
+      boxShadow: {
+        custom: "0 0 8px rgba(0, 0, 0, 0.2)",
+      },
+      width: {
+        detailFlag: "500px",
+      },
+      height: {
+        detailFlag: "340px",
       },
     },
   },
