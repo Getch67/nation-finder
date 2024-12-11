@@ -11,6 +11,7 @@ module.exports = {
         bodyBgLight: "hsl(0, 0%, 98%)",
         textColorDark: "hsl(0, 0%, 100%)",
         textColorLight: "hsl(200, 15%, 8%)",
+        textColorLight2: "rgba(16, 16, 25, 0.2)",
         hoverBgDark: "hsl(209, 23%, 18%)",
         hoverBgLight: "hsl(0, 0%, 90%)",
       },
@@ -28,6 +29,7 @@ module.exports = {
       },
       height: {
         detailFlag: "340px",
+        card: "340px",
       },
     },
   },

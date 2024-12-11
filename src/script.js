@@ -26,15 +26,19 @@ countryNames.forEach((country) => {
       const card = document.createElement("div");
       card.setAttribute(
         "class",
-        "card bg-elementBgLight dark:bg-elementBgDark h-72 flex-col shadow-md rounded overflow-hidden cursor-pointer transition-transform ease-in-out duration-700 hover:scale-105"
+        "card bg-elementBgLight dark:bg-elementBgDark h-72 flex-col shadow-custom rounded overflow-hidden cursor-pointer transition-transform ease-in-out duration-700 hover:scale-105"
       );
-      card.innerHTML = ` <img src="${cFlags[1]}" alt="${cFlags[2]}" class="w-full h-1/2 object-cover">
+      card.innerHTML = ` <img src="${cFlags[1]}" alt="${cFlags[2]}" class="w-full h-2/5 object-cover">
         <div class="flex-col w-full p-6">
-            <h3 class="font-bold text-mxl mb-2">${cName}</h3>
-            <p class="text-sm"><span class="font-medium">Population:</span> ${cPopln}</p>
-            <p class="text-sm"><span class="font-medium">Region:</span> ${cRegion}</p>
-            <p class="text-sm"><span class="font-medium">Capital:</span> ${cCapital}</p>
+            <h3 class="font-bold text-mxl mb-3">${cName}</h3>
+            <p class="text-sm leading-relaxed font-light"><span class="font-semibold">Population:</span> ${cPopln}</p>
+            <p class="text-sm leading-relaxed font-light"><span class="font-semibold">Region:</span> ${cRegion}</p>
+            <p class="text-sm leading-relaxed font-light"><span class="font-semibold">Capital:</span> ${cCapital}</p>
         </div>`;
+      card.addEventListener("click", () => {
+        window.location.href = "../detail.html";
+        localStorage.setItem("name", `${cName}`);
+      });
       container.appendChild(card);
       fetchedCountries.push({ card, region: cRegion, name: cName });
     } catch (error) {
@@ -80,6 +84,13 @@ function filterCountries(selectedRegion) {
     }
   });
 }
+document.addEventListener("click", (e) => {
+  if (!options.contains(e.target) && !dropdown.contains(e.target)) {
+    options.classList.add("hidden");
+    caretIcon.classList.remove("fa-caret-up");
+    caretIcon.classList.add("fa-caret-down");
+  }
+});
 
 // Search functionality
 const searchInput = document.getElementById("search-input");
@@ -98,6 +109,14 @@ function searchCountries(searchValue) {
     }
   });
 }
+
+// detail page link
+fetchedCountries.forEach(({ card, name }) => {
+  card.addEventListener("click", () => {
+    window.location.href = "../detail.html";
+    console.log("first");
+  });
+});
 
 // theme toggle
 const themeToggle = document.querySelector(".theme-toggle");

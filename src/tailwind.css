@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .option {
+    @apply px-6 py-1 cursor-pointer hover:bg-hoverBgLight dark:hover:bg-hoverBgDark transition-all;
+  }
+  .borders {
+    @apply bg-elementBgLight dark:bg-elementBgDark w-36 h-8 flex items-center justify-center rounded shadow-custom cursor-pointer;
+  }
+}
