@@ -29,7 +29,7 @@ module.exports = {
       },
       height: {
         detailFlag: "340px",
-        card: "340px",
+        card: "330px",
       },
     },
   },

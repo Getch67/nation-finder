@@ -24,11 +24,8 @@ countryNames.forEach((country) => {
       const cFlags = Object.values(countries[0].flags);
 
       const card = document.createElement("div");
-      card.setAttribute(
-        "class",
-        "card bg-elementBgLight dark:bg-elementBgDark h-72 flex-col shadow-custom rounded overflow-hidden cursor-pointer transition-transform ease-in-out duration-700 hover:scale-105"
-      );
-      card.innerHTML = ` <img src="${cFlags[1]}" alt="${cFlags[2]}" class="w-full h-2/5 object-cover">
+      card.setAttribute("class", "country-card");
+      card.innerHTML = ` <img src="${cFlags[1]}" alt="${cFlags[2]}" class="w-full h-1/2 object-cover">
         <div class="flex-col w-full p-6">
             <h3 class="font-bold text-mxl mb-3">${cName}</h3>
             <p class="text-sm leading-relaxed font-light"><span class="font-semibold">Population:</span> ${cPopln}</p>

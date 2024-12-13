@@ -51,12 +51,21 @@ async function fetchCountry(country) {
           return borderCountryName;
         })
       );
-
+      //
+      console.log(borderCountryData);
+      //
+      const borderCountries = [];
       if (borderCountryData.length > 0) {
         borderCountriesDisplay = borderCountryData
           .map((countryName) => `<div class="borders">${countryName}</div>`)
           .join(" ");
-        borders.push({ borderCountriesDisplay, name: countryName });
+        // borderCountryData.forEach((countryName) => {
+        //   const borderCountry = document.createElement("div");
+        //   borderCountry.innerHTML = `${countryName}`;
+        //   borderCountry.classList.add("borders");
+        //   borderCountries.push(borderCountry);
+        // });
+        console.log(borderCountries);
       }
     }
     section.innerHTML = `<div class="flex flex-col lg:flex-row xl:flex-row gap-12 xl:gap-32 xl:items-center">
@@ -81,9 +90,16 @@ async function fetchCountry(country) {
               <p class="font-light"><span class="font-semibold">Languages:</span> ${cLanguages}</p>
             </div>
           </div>
-          <div class="flex flex-col xl:flex-row gap-4"><span class="font-semibold text-xl">Border Countries:</span> <div class="flex flex-wrap gap-2">${borderCountriesDisplay}</div> </div>
+          <div class="flex flex-col xl:flex-row gap-4"><span class="font-semibold text-lg xl:text-base">Border Countries:</span> <div class="flex flex-wrap gap-2">${borderCountriesDisplay}</div> </div>
         </div>
       </div>`;
+    const borders = document.querySelectorAll(".borders");
+    borders.forEach((border) => {
+      border.addEventListener("click", () => {
+        localStorage.setItem("name", `${border.textContent}`);
+        window.location.href = "../detail.html";
+      });
+    });
   } catch (error) {
     console.log(`Sorry, ${error}`);
   }
@@ -100,17 +116,7 @@ backBtn.addEventListener("click", () => {
     window.history.back();
   }
 });
-// border countries link
-// const borders = document.querySelectorAll(".borders");
-console.log(borders + "hhhhhhhhhhh");
-// function goToBorder() {
-//   const bordersName = [];
-//   borders.forEach((border) => {
-//     bordersName.push(border.innerText);
-//   });
-//   window.location.href = "../detail.html";
-//   localStorage.setItem("name", `${bordersName[0]}`);
-// }
+
 // theme toggle
 const themeToggle = document.querySelector(".theme-toggle");
 const themeIcon = document.querySelector(".theme-icon");
