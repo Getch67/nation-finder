@@ -9,6 +9,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 - [Screenshot](#screenshot)
 - [Links](#links)
 - [My process](#my-process)
+  - [Challenges I faced](#challenges-i-faced)
   - [Built with](#built-with)
 - [Author](#author)
 
@@ -37,6 +38,9 @@ Users should be able to:
 I analyzed the design images to understand the HTML structure and CSS layout, aiming to recreate the design.
 Then, I started implementing it using HTML and Tailwind CSS.
 Next, I added the JavaScript functionality, which is crucial for the project since it's API-dependent. 
+
+### Challenges I faced
+
 Managing the dynamic elements was challenging, especially as many of them are created dynamically. 
 Additionally, some objects from the API were difficult to display correctly on the page.
 
