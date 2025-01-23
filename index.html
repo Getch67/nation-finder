@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nation Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body
+    class="bg-bodyBgLight dark:bg-bodyBgDark overflow-x-hidden text-textColorLight dark:text-textColorDark font-serif"
+  >
+    <header class="sticky z-50">
+      <div
+        class="left-0 top-0 w-full h-20 bg-elementBgLight dark:bg-elementBgDark shadow-custom flex items-center justify-between px-4 md:px-10 lg:px-10 xl:px-20 mb-12 xl:mb-16 2xl:w-max 2xl:mx-auto"
+      >
+        <h1 class="font-extrabold md:text-xl xl:text-2xl xl:font-extrabold">
+          Where in the world?
+        </h1>
+        <div class="theme-toggle cursor-pointer">
+          <i class="fa-solid fa-moon mr-2 theme-icon"></i>
+          <span class="theme-name">Dark Mode</span>
+        </div>
+      </div>
+    </header>
+    <main class="px-4 xl:px-20">
+      <section class="mb-7 md:mb-10 xl:mb-12 2xl:w-max 2xl:mx-auto">
+        <div
+          class="flex-col gap-10 flex md:px-10 md:flex-row md:justify-between lg:flex-row xl:flex-row xl:justify-between xl:px-0"
+        >
+          <div
+            class="relative flex flex-shrink-0 items-center md:w-1/2 w-full xl:w-1/3"
+          >
+            <i
+              class="fa-solid fa-magnifying-glass absolute left-8 text-textColorLight2 dark:text-textColorDark"
+            ></i>
+            <input
+              type="text"
+              placeholder="Search for a country..."
+              class="bg-elementBgLight dark:bg-elementBgDark placeholder:text-textColorLight2 dark:placeholder:text-textColorDark w-full py-3 pl-20 rounded outline-none shadow-custom"
+              id="search-input"
+            />
+          </div>
+          <div>
+            <div
+              class="dropdown w-52 rounded bg-elementBgLight dark:bg-elementBgDark relative"
+            >
+              <div
+                class="dropdown-selected px-6 py-3 cursor-pointer shadow-custom relative"
+              >
+                <span class="current-option">Filter by Region</span>
+                <i
+                  class="fa-solid fa-caret-down caret absolute right-8 top-4"
+                ></i>
+              </div>
+              <div
+                class="dropdown-options hidden absolute py-2 top-full mt-1 w-full bg-elementBgLight dark:bg-elementBgDark rounded shadow-custom"
+              >
+                <div class="option" data-value="1">Africa</div>
+                <div class="option" data-value="2">Americas</div>
+                <div class="option" data-value="3">Asia</div>
+                <div class="option" data-value="3">Europe</div>
+                <div class="option" data-value="3">Oceania</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="px-10 xl:px-0 2xl:w-3/4 2xl:mx-auto">
+        <div
+          class="container grid grid-cols-1 gap-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+        ></div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

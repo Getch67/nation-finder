@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .country-card {
+    @apply bg-elementBgLight dark:bg-elementBgDark h-card flex-col shadow-custom rounded overflow-hidden cursor-pointer transition-transform ease-in-out duration-700 hover:scale-105;
+  }
+  .option {
+    @apply px-6 py-1 cursor-pointer hover:bg-hoverBgLight dark:hover:bg-hoverBgDark transition-all;
+  }
+  .borders {
+    @apply bg-elementBgLight dark:bg-elementBgDark w-36 h-8 flex items-center justify-center rounded shadow-custom cursor-pointer;
+  }
+}
